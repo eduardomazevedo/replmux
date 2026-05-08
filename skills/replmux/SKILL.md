@@ -5,7 +5,7 @@ description: Use when a user wants a persistent Python REPL shared between the a
 
 # replmux
 
-Use `replmux` to keep one Python process alive and send code into it.
+Use `replmux` to keep one Python process alive and send code into it. So for data analysis you can have a persistent REPL.
 
 ## Setup
 
@@ -22,9 +22,15 @@ Use `replmux` to keep one Python process alive and send code into it.
    tmux has-session -t replmux 2>/dev/null || tmux new-session -d -s replmux "cd $(pwd) && uv run replmux start"
    ```
    The user can inspect the session in tmux.
-3. Send code `uv run replmux run '...'`.
-4. For multi-line code, pipe a heredoc into `uv run replmux run`.
-5. Keep reusing the same REPL for follow-up commands instead of starting from scratch. For example, if you already loaded a dataframe into `df`, later commands should use `df` directly rather than re-importing and re-reading the same file unless you intentionally want a fresh state.
+3. Send code `uv run replmux run 'df = load_data()'`. Then session persists: `uv run replmux run 'df["column"].mean()'` returns the value.
+4. For multi-line code, pipe a heredoc:
+   ```bash
+   uv run replmux run <<'PY'
+   x = 1
+   print(x)
+   PY
+   ```
+5. Use the same REPL for follow-up commands instead of starting from scratch.
 6. Use `uv run replmux stop` to shut down.
 
 ## Notes
