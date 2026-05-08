@@ -9,7 +9,7 @@ Persistent python repl for agents. Did you every want an agent to do data analys
 From the project where you want to use `replmux`, add it as a development dependency with `uv`:
 
 ```bash
-uv add --dev replmux
+uv add --dev git+https://github.com/eduardomazevedo/replmux
 ```
 
 ## Usage
