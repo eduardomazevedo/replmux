@@ -1,12 +1,12 @@
 # replmux
 
-Persistent python repl for agents. Did you every want an agent to do data analysis on python? What it not to load 100Gb dataset every time? Want it not to repeat boiler plate before each command? Use repl like a normal person?
+Persistent python repl for agents. Did you every want an agent to do data analysis on python? Want it not to load a 100Gb dataset every time? Want it not to waste tokens on boiler plate every time? Want it to use repl like a normal person?
 
-`replmux` runs a long-lived Python process, inside `tmux` or with `&`. Lets another shell send Python code into that same persistent session.
+`replmux` runs a long-lived Python process. Recommended to run inside `tmux`. And lets another shell (where your agent is) send Python code into the persistent session.
 
 ## Install
 
-From the project where you want to use `replmux`, add it as a development dependency with `uv`:
+From the project where you want to use `replmux`, add it as a dev dependency:
 
 ```bash
 uv add --dev git+https://github.com/eduardomazevedo/replmux
@@ -14,7 +14,7 @@ uv add --dev git+https://github.com/eduardomazevedo/replmux
 
 ## Usage
 
-Start the persistent REPL server in tmux:
+Start the persistent REPL server:
 
 ```bash
 tmux new -s replmux
