@@ -7,6 +7,10 @@ description: Use when a user wants a persistent Python REPL shared between the a
 
 Use `replmux` to keep one Python process alive and send code into it.
 
+## Setup
+
+`replmux` should be installed as a dev dependency in the project where you want to use it: `uv add --dev git+https://github.com/eduardomazevedo/replmux`
+
 ## Workflow
 
 1. If the server is not running, tell the user to start it in `tmux` with `uv run replmux start`. The user can use the tmux tab to see what you are doing, but you just start replmux and detach.
